@@ -9,9 +9,6 @@ GUI teleport system, for small, private server.
 - [ ] Toggleable
 - [ ] Delay
 
-## Build a project
-- JDK 11, Maven
-
 ## Commands
 - /t - <b>Open Teleport GUI</b> (teleportgui.use)
 - /treload - <b>Reload plugin</b> (teleportgui.admin)
