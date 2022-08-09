@@ -9,7 +9,7 @@ GUI teleport system, for small, private server.
 - [ ] Toggleable
 - [ ] Delay
 
-## Build
+## Build a project
 - JDK 11, Maven
 
 ## Commands
