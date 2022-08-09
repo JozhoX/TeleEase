@@ -1,0 +1,15 @@
+name: TeleportGUI
+version: '${project.version}'
+main: cc.inshallah.main.Main
+api-version: 1.19
+authors: [ Inshallah ]
+website: inshallah.cc
+load: STARTUP
+
+commands:
+  t:
+    permission: teleportgui.use
+    usage: /<command> [player]
+  treload:
+    permission: teleportgui.admin
+    usage: /<command>
