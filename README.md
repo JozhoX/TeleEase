@@ -1,8 +1,8 @@
 # TeleportGUI
 GUI teleport system, for small, private server.
 
-### Supported Version
-1.19.1
+### Supported Version (Spigot)
+- 1.19.1
 
 ## Todo List
 - [ ] Teleport via player name w/o using GUI
