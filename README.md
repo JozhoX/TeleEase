@@ -15,9 +15,14 @@ GUI teleport system, for small, private server.
 
 ## Configuration
 ```
-inventory-title = "&cChoose a player!" # Inventory Name
-display-name-color" = "&b" # Player Skull Name
-notify-message" = "&a%player% &eteleported to you!" # Message when player teleport to you
-notify-target = true # Notify when player teleport to you
-teleport-sound = true # Play sound when teleport
+# Inventory Name
+inventory-title = "&cChoose a player!"
+# Player Skull Name
+display-name-color" = "&b"
+# Message when player teleport to you
+notify-message" = "&a%player% &eteleported to you!"
+# Notify when player teleport to you
+notify-target = true
+# Play sound when teleport
+teleport-sound = true 
 ```
