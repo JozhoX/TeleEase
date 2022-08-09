@@ -9,13 +9,14 @@ GUI teleport system, for small, private server.
 - [ ] Toggleable
 - [ ] Delay
 
+## Build
+- JDK 11, Maven
+
 ## Commands
 - /t - <b>Open Teleport GUI</b> (teleportgui.use)
 - /treload - <b>Reload plugin</b> (teleportgui.admin)
 
 ## Configuration
-- JDK 11, Maven
-
 ```
 # Inventory Name
 inventory-title = "&cChoose a player!"
