@@ -14,6 +14,8 @@ GUI teleport system, for small, private server.
 - /treload - <b>Reload plugin</b> (teleportgui.admin)
 
 ## Configuration
+- JDK 11, Maven
+
 ```
 # Inventory Name
 inventory-title = "&cChoose a player!"
