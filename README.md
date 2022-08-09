@@ -1,13 +1,23 @@
 # TeleportGUI
 GUI teleport system, for small, private server.
 
-Tested in 1.19.1
+### Supported Version
+1.19.1
 
-WIP Stuff
-- Teleport argument
-- Tp toggle
-- Tp delay
+## Todo List
+- [ ] Teleport via player name w/o using GUI
+- [ ] Toggleable
+- [ ] Delay
 
-Commands
+## Commands
 - /t - <b>Open Teleport GUI</b> (teleportgui.use)
 - /treload - <b>Reload plugin</b> (teleportgui.admin)
+
+## Configuration
+```
+inventory-title = "&cChoose a player!" # Inventory Name
+display-name-color" = "&b" # Player Skull Name
+notify-message" = "&a%player% &eteleported to you!" # Message when player teleport to you
+notify-target = true # Notify when player teleport to you
+teleport-sound = true # Play sound when teleport
+```
