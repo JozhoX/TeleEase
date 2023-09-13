@@ -5,9 +5,9 @@ GUI teleport system, for small, private server.
 - 1.19.1
 
 ## Todo List
-- [ ] Teleport via player name w/o using GUI
-- [ ] Toggleable
-- [ ] Delay
+- [ ] GUI-Less teleportation
+- [ ] Per player toggleable
+- [ ] Teleport delay
 
 ## Commands
 - /t - <b>Open Teleport GUI</b> (teleportgui.use)
