@@ -1,7 +1,7 @@
 # TeleportGUI
 
 ### Supported Version (Spigot)
-- 1.19.1
+- 1.19.1 or newer
 
 ## Todo List
 - [ ] GUI-Less teleportation
