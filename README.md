@@ -1,5 +1,4 @@
 # TeleportGUI
-GUI teleport system, for small, private server.
 
 ### Supported Version (Spigot)
 - 1.19.1
