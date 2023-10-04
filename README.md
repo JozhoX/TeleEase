@@ -4,10 +4,10 @@ GUI teleport system, for small, private server.
 ### Supported Version (Spigot)
 - 1.19.1
 
-## Todo List
-- [ ] GUI-Less teleportation
-- [ ] Per player toggleable
-- [ ] Teleport delay
+## Features
+- [X] GUI-Less teleportation
+- [X] Teleport delay
+- [X] Teleport sound
 
 ## Commands
 - /t - <b>Open Teleport GUI</b> (teleportgui.use)
@@ -24,5 +24,7 @@ notify-message" = "&a%player% &eteleported to you!"
 # Notify when player teleport to you
 notify-target = true
 # Play sound when teleport
-teleport-sound = true 
+teleport-sound = true
+# Delay when teleport (0 for no delay)
+teleport-delay = 3
 ```

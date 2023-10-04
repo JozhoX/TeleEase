@@ -22,6 +22,10 @@ public final class Main extends JavaPlugin {
         //
     }
 
+    public int getTeleportDelay() {
+        return cfg.getInt("teleport-delay");
+    }
+
     public String getTitle() {
         return ChatColor.translateAlternateColorCodes('&', cfg.getString("inventory-title"));
     }
@@ -48,6 +52,7 @@ public final class Main extends JavaPlugin {
         cfg.addDefault("notify-message", "&a%player% &eteleported to you!");
         cfg.addDefault("notify-target", true);
         cfg.addDefault("teleport-sound", true);
+        cfg.addDefault("teleport-delay", 3);
         cfg.options().copyDefaults(true);
         saveConfig();
     }

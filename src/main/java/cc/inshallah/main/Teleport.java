@@ -11,10 +11,14 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class Teleport implements CommandExecutor, Listener {
 
     private final Main plugin = Main.getPlugin(Main.class);
+    private NamespacedKey key = new NamespacedKey(plugin, "player-name");
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
@@ -23,8 +27,17 @@ public class Teleport implements CommandExecutor, Listener {
         ItemStack item = event.getCurrentItem();
         if (item == null || item.getType() == Material.AIR) return;
         if (!invName.equals(plugin.getTitle())) return;
+        event.setCancelled(true);
+        PersistentDataContainer container = item.getItemMeta().getPersistentDataContainer();
+        String playerName = null;
+        if (container.has(key, PersistentDataType.STRING)) {
+            playerName = container.get(key, PersistentDataType.STRING);
+        } else {
+            return;
+        }
+
         try {
-            Player target = Bukkit.getServer().getPlayer(ChatColor.stripColor(item.getItemMeta().getDisplayName()));
+            Player target = Bukkit.getServer().getPlayer(playerName);
             Location targetLocation = target.getLocation();
             targetLocation.setPitch(0);
             player.teleport(targetLocation);
@@ -53,6 +66,7 @@ public class Teleport implements CommandExecutor, Listener {
             if (p == player) return;
             meta.setDisplayName(plugin.getDisplayColor() + player.getName());
             meta.setOwner(player.getName());
+            meta.getPersistentDataContainer().set(key, PersistentDataType.STRING, player.getName());
             head.setItemMeta(meta);
             inv.setItem(slot++, head);
         }
@@ -65,7 +79,27 @@ public class Teleport implements CommandExecutor, Listener {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
                 if (player.getServer().getOnlinePlayers().size() > 1) {
-                    CreateTeleportGUI(player);
+                    if (args.length == 0) {
+                        CreateTeleportGUI(player);
+                    } else {
+                        Player targetPlayer = Bukkit.getPlayer(args[0]);
+                        if (targetPlayer == null) {
+                            player.sendMessage(ChatColor.RED + "Target player is offline.");
+                            return true;
+                        } else {
+                            int delay = Math.abs(plugin.getTeleportDelay());
+                            if (delay != 0) {
+                                player.sendMessage(ChatColor.GREEN + String.format("Teleporting to %s in %d seconds.", targetPlayer.getName(), delay));
+                            }
+                            new BukkitRunnable() {
+                                @Override
+                                public void run() {
+                                    player.teleport(targetPlayer.getLocation().add(0, 0.1, 0));
+                                }
+                            }.runTaskLater(plugin, 20L * delay);
+                        }
+                    }
+                    return true;
                 } else {
                     sender.sendMessage(ChatColor.RED + "Insufficient player to use this command.");
                 }
